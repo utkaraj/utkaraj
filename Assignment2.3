@@ -1,0 +1,106 @@
+Question 1:
+#! /bin/bash
+
+for file in *.sh
+do
+	mv "${file}.sh" "${file}.exe"
+done
+echo "File extensions changed from .sh to .exe"
+---------------------------------------------------------------------------------------------------------
+Question 2:
+#! /bin/bash
+
+count=0 
+count2=0
+count3=0
+
+echo "Enter 10 numbers : "
+read -a num
+
+for i in "${num[@]}"
+do
+	if [ $i -gt 0 ]
+	then
+		(( count=count+1 ))
+	fi
+done
+echo "Number of positive number : ${count}"
+
+for i in "${num[@]}"
+do
+	if [ $i -lt 0 ]
+	then
+		(( count2=count2+1 ))
+	fi
+done
+echo "Number of negative number : ${count2}"
+
+for i in "${num[@]}"
+do
+	if [ $i -eq 0 ]
+	then
+		(( count3=count3+1 ))
+	fi
+done
+echo "Number of zeroes : ${count3}"
+---------------------------------------------------------------------------------------------------------
+Question 3:
+#! /bin/bash
+
+echo "Armstrong numbers between 1 to 999 are : "
+
+for i in {1..999}
+do
+	temp_number=$i
+	while [ $temp_number -ge 1 ]
+	do
+		temp_var=$((temp_number%10))
+		power=$((temp_var*temp_var*temp_var))
+		((sum=sum+power))
+		temp_number=$((temp_number/10))
+	done
+	if [ $sum -eq $i ]
+	then
+		echo "$i is an armstrong number."
+	fi
+	sum=0
+done
+--------------------------------------------------------------------------------------------------------
+Question 5:
+#! /bin/bash
+
+echo "Enter five numbers : "
+read -a num
+
+max=${num[0]}
+min=${num[4]}
+count=0
+
+for i in "${num[@]}"
+do		
+	if [ $i -gt $max ]
+	then
+		max=$i
+	fi
+done
+echo "Largest number is : $max"
+
+for i in "${num[@]}"
+do		
+	if [ $i -lt $min ]
+	then
+		min=$i
+	fi
+done
+echo "Smallest number is : $min"
+
+for i in "${num[@]}"
+do		
+	if [ $i -eq $((i+1))]
+	then
+		((count=count+1))
+		equal=$((i+1))	
+	fi
+done
+echo "Number of equal numbers is : $count and the value is : $equal"		
+---------------------------------------------------------------------------------------------------------

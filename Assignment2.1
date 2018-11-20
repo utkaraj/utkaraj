@@ -1,0 +1,51 @@
+Question 1:
+#! /bin/bash
+
+echo "Welcome! Please enter Principal, Rate of Interest and Time to calculate Simple Interest"
+read p r t
+echo "Simple Interest : $((p*r*t/100))"
+------------------------------------------------------------------------------------------------
+Question 2:
+#! /bin/bash
+
+echo "Welcome! Please enter your basic pay in order to calculate your Salary"
+read basic
+((dp=50/100*basic))
+((bdp=basic+dp))
+((da=35/100*bdp))
+((hra=8/100*bdp))
+((ma=3/100*bdp))
+((pf=10/100*bdp))
+((Salary=bdp+da+hra+ma-pf))
+echo "Your Salary is : $Salary"
+------------------------------------------------------------------------------------------------
+Question 4:
+#! /bin/bash
+
+echo "Welcome! Please enter number to get sum of number to the entered number"
+((sum=number*((number+1))/2))
+echo "Sum is : $sum"
+------------------------------------------------------------------------------------------------
+Question 5:
+#! /bin/bash
+
+echo "Welcome! Please enter two numbers"
+read num1 num2
+echo "Choose the operation you want to perform:
+		1.Add
+		2.Subtract
+		3.Multiply
+		4.Divide"
+read choice
+
+case $choice in 
+	"1" )
+			echo "The sum is : $((num1+num2))" ;;
+	"2" )
+			echo "The diffrence is : $((num1-num2))" ;;
+	"3" )
+			echo "The product is : $((num1*num2))" ;;
+	"4" )
+			echo "The result is : $((num1/num2))" ;;
+esac
+------------------------------------------------------------------------------------------------
